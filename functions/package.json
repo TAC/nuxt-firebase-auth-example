@@ -1,0 +1,32 @@
+{
+  "name": "functions",
+  "version": "1.0.0",
+  "description": "Cloud Functions for Firebase",
+  "engines": {
+    "node": "8"
+  },
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "tslint --project tsconfig.json",
+    "build": "tsc"
+  },
+  "dependencies": {
+    "@nuxt/config": "^2.8.1",
+    "express": "^4.17.1",
+    "firebase": "^6.2.0",
+    "firebase-admin": "~8.1.0",
+    "firebase-functions": "^3.0.1",
+    "nuxt": "^2.8.1",
+    "nuxt-property-decorator": "^2.3.0",
+    "ts-node": "^8.3.0",
+    "vuex-class-component": "^1.6.0"
+  },
+  "devDependencies": {
+    "@nuxt/typescript": "^2.8.1",
+    "@types/express": "^4.17.0",
+    "firebase-functions-test": "^0.1.6",
+    "tslint": "^5.17.0",
+    "typescript": "^3.5.2"
+  },
+  "private": true
+}
