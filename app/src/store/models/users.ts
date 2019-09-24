@@ -6,7 +6,11 @@ interface User {
 
 @Module({ namespacedPath: 'models/users/', target: 'nuxt' })
 class Store extends VuexModule {
-  @getter user: User | null = null
+  private user: User | null = null
+
+  get get() {
+    return this.user
+  }
 
   get isAuthenticated() {
     return !!this.user

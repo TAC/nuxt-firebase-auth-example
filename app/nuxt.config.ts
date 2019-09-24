@@ -1,8 +1,8 @@
-import NuxtConfiguration from '@nuxt/config'
+import { Configuration } from '@nuxt/types'
 import envSet from '../.env/environment.js'
 import pkg from './package.json'
 
-const nuxtConfig: NuxtConfiguration = {
+const nuxtConfig: Configuration = {
   mode: 'universal',
   srcDir: 'src',
 
@@ -43,6 +43,11 @@ const nuxtConfig: NuxtConfiguration = {
    ** Nuxt.js modules
    */
   modules: [['cookie-universal-nuxt', { parseJSON: false }]],
+
+  /*
+   ** Nuxt.js build modules
+   */
+  buildModules: ['@nuxt/typescript-build'],
 
   /*
    ** Build configuration

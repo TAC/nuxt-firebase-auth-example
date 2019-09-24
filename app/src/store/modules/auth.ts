@@ -27,10 +27,11 @@ class Store extends VuexModule {
       })
   }
 
-  @action()
+  @action({ mode: 'raw' })
   public async signInGoogle() {
+    const context = getRawActionContext(this)
     const provider = new firebase.auth.GoogleAuthProvider()
-    await this.signIn(provider)
+    await context.dispatch('signIn', provider)
   }
 
   @action({ mode: 'raw' })

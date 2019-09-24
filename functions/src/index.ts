@@ -1,9 +1,9 @@
 import * as functions from 'firebase-functions'
 import * as express from 'express'
-import NuxtConfiguration from '@nuxt/config'
+import { Configuration } from '@nuxt/types'
 const { Nuxt } = require('nuxt')
 
-const nuxtConfig: NuxtConfiguration = {
+const nuxtConfig: Configuration = {
   dev: false,
   buildDir: '.nuxt',
   build: {

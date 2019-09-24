@@ -1,29 +1,40 @@
+import { NuxtCookies } from 'cookie-universal-nuxt'
+
 const _OPTIONS = {
   path: '/',
   maxAge: 60 * 60 * 24 * 7,
   secure: true
 }
 
-export function getCookie(cookies, name) {
+export function getCookie(cookies: NuxtCookies, name: string): string {
   const data = deserialize(cookies.get('__session'))
   return data[name]
 }
 
-export function setCookie(cookies, name, value, isLocalhost) {
+export function setCookie(
+  cookies: NuxtCookies,
+  name: string,
+  value: string,
+  isLocalhost: boolean
+) {
   const data = deserialize(cookies.get('__session'))
   data[name] = value
   _OPTIONS.secure = !isLocalhost
   cookies.set('__session', serialize(data), _OPTIONS)
 }
 
-export function removeCookie(cookies, name, isLocalhost) {
+export function removeCookie(
+  cookies: NuxtCookies,
+  name: string,
+  isLocalhost: boolean
+) {
   const data = deserialize(cookies.get('__session'))
   delete data[name]
   _OPTIONS.secure = !isLocalhost
   cookies.set('__session', serialize(data), _OPTIONS)
 }
 
-function serialize(obj) {
+function serialize(obj: Object): string {
   try {
     const str = JSON.stringify(obj, function replacer(k, v) {
       if (typeof v === 'function') {
@@ -33,11 +44,11 @@ function serialize(obj) {
     })
     return str
   } catch (e) {
-    return {}
+    return ''
   }
 }
 
-function deserialize(str) {
+function deserialize(str: string): Object {
   try {
     const obj = JSON.parse(str, function reciever(k, v) {
       if (typeof v === 'string' && v.startsWith('function')) {

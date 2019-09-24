@@ -25,7 +25,7 @@ const Auth = namespace('modules/auth')
   }
 })
 export default class extends Vue {
-  @Users.Getter('user') user
+  @Users.Getter('get') user
   @Users.Getter('isAuthenticated') isAuthenticated
   @Auth.Action('signInGoogle') authSignInGoogle
   @Auth.Action('signOut') authSignOut
