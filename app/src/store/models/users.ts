@@ -1,4 +1,4 @@
-import { VuexModule, Module, getter, mutation } from 'vuex-class-component'
+import { VuexModule, Module, mutation } from 'vuex-class-component'
 
 interface User {
   [key: string]: any

@@ -32,9 +32,9 @@ describe('store/models/users.ts', () => {
   })
 
   describe('getters', () => {
-    test('users', () => {
+    test('get', () => {
       store.commit('models/users/SET_USER', user)
-      expect(store.getters['models/users/user']).toMatchObject(user)
+      expect(store.getters['models/users/get']).toMatchObject(user)
     })
 
     describe('isAuthenticated', () => {
@@ -52,7 +52,7 @@ describe('store/models/users.ts', () => {
   describe('mutations', () => {
     test('UNSET_USER', () => {
       store.commit('models/users/UNSET_USER')
-      expect(store.getters['models/users/user']).toBeNull()
+      expect(store.getters['models/users/get']).toBeNull()
     })
   })
 })

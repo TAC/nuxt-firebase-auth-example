@@ -36,7 +36,7 @@ export function removeCookie(
 
 function serialize(obj: Object): string {
   try {
-    const str = JSON.stringify(obj, function replacer(k, v) {
+    const str = JSON.stringify(obj, function replacer(_, v) {
       if (typeof v === 'function') {
         return v.toString()
       }
@@ -50,7 +50,7 @@ function serialize(obj: Object): string {
 
 function deserialize(str: string): Object {
   try {
-    const obj = JSON.parse(str, function reciever(k, v) {
+    const obj = JSON.parse(str, function reciever(_, v) {
       if (typeof v === 'string' && v.startsWith('function')) {
         return Function.call(this, 'return ' + v)()
       }
