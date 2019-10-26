@@ -45,14 +45,14 @@ describe('store/modules/auth.ts', () => {
   describe('actions', () => {
     test('isSignIn', async () => {
       await store.dispatch('modules/auth/isSignIn')
-      const result = store.getters['models/users/get']
+      const result = store.getters['models/users/user']
       expect(result).toMatchObject(user)
     })
 
     test('signOut', async () => {
       await store.dispatch('modules/auth/signOut')
-      const result = store.getters['models/users/get']
-      expect(result).toBeNull()
+      const result = store.getters['models/users/user']
+      expect(result).toMatchObject({})
     })
 
     test('signInGoogle', async () => {
@@ -68,7 +68,7 @@ describe('store/modules/auth.ts', () => {
       await store.dispatch('modules/auth/signInGoogle')
       await flushPromises()
 
-      const result = store.getters['models/users/get']
+      const result = store.getters['models/users/user']
       expect(result.providerData[0]).toMatchObject({
         providerId: 'google.com'
       })

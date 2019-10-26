@@ -6,10 +6,10 @@ interface User {
 
 @Module({ namespacedPath: 'models/users/', target: 'nuxt' })
 class Store extends VuexModule {
-  @getter user: User | null = null
+  @getter user: User = {}
 
   get isAuthenticated() {
-    return !!this.user
+    return !!this.user.uid
   }
 
   @mutation
@@ -37,7 +37,7 @@ class Store extends VuexModule {
 
   @mutation
   public UNSET_USER() {
-    this.user = null
+    this.user = {}
   }
 }
 
