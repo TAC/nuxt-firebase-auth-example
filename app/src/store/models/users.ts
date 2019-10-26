@@ -1,4 +1,4 @@
-import { VuexModule, Module, mutation } from 'vuex-class-component'
+import { VuexModule, Module, getter, mutation } from 'vuex-class-component'
 
 interface User {
   [key: string]: any
@@ -6,11 +6,7 @@ interface User {
 
 @Module({ namespacedPath: 'models/users/', target: 'nuxt' })
 class Store extends VuexModule {
-  private user: User | null = null
-
-  get get() {
-    return this.user
-  }
+  @getter user: User | null = null
 
   get isAuthenticated() {
     return !!this.user
